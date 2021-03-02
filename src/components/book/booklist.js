@@ -40,7 +40,7 @@ const BookList = () => {
     api.books
       .postBooks({
         page: currentPage,
-        itemsPerPage: 20,
+        itemsPerPage: 10,
         filters: [{ type: 'all', values: [searchTerm] }]
       })
       .then(res => {
@@ -57,17 +57,6 @@ const BookList = () => {
     }
   }, [currentPage, history, path]);
 
-  const handleSearchInputChange = useCallback(searchTermValue => {
-    setSearchTerm(searchTermValue);
-  }, []);
-
-  const handleSearchSubmit = useCallback(event => {
-    event.preventDefault();
-    setCurrentPage(1);
-    setSearched(true);
-  }, []);
-
-  
 
   return (
     <Container>
